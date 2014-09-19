@@ -17,6 +17,7 @@ namespace ProducerConsumer
 
             Parallel.Invoke(prod.Run, con.Run);
 
+            Console.ReadKey();
         }
     }
 }

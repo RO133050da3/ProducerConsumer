@@ -16,9 +16,9 @@ namespace ProducerConsumer
             this._queue = new Queue<int>();
         }
 
-        public Boolean IsFull()
+        public bool IsFull()
         {
-            return true;
+            return false;
         }
 
         public void Put(int element)
@@ -28,6 +28,11 @@ namespace ProducerConsumer
 
         public int Take()
         {
+            while (this._queue.Count == 0)
+            {
+                // Wait while the queue is empty
+            }
+
             int temp = this._queue.Dequeue();
             return temp;
         }
