@@ -20,8 +20,11 @@ namespace ProducerConsumer
         {
             for (int i = 0; i < this._max; i++)
             {
-                int temp = this._buffer.Take();
-                Console.WriteLine("Consumer just took {0} from the buffer", temp);
+                lock (this._buffer)
+                {
+                    int temp = this._buffer.Take();
+                    Console.WriteLine("Consumer just took {0} from the buffer", temp);
+                }
             }
         }
     }

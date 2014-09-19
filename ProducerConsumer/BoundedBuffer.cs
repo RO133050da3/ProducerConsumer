@@ -18,11 +18,20 @@ namespace ProducerConsumer
 
         public bool IsFull()
         {
+            if (this._queue.Count >= this._cap)
+            {
+                return true;
+            }
+
             return false;
         }
 
         public void Put(int element)
         {
+            while (this.IsFull())
+            {
+                // Wait until the buffer is not full anymore
+            }
             this._queue.Enqueue(element);
         }
 
