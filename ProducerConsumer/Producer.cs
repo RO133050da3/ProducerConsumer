@@ -21,11 +21,10 @@ namespace ProducerConsumer
         {
             for (int i = 0; i < this._max; i++)
             {
-                lock (this._buffer)
-                {
-                    this._buffer.Put(i);
-                    Console.WriteLine("Producer added {0} to the buffer", i);
-                }
+                
+                this._buffer.Put(i);
+                
+                
             }
         }
     }
