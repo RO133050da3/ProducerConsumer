@@ -12,11 +12,14 @@ namespace ProducerConsumer
         {
             BoundedBuffer buf = new BoundedBuffer(4);
 
-            Producer prod = new Producer(buf, 10);
-            Consumer con = new Consumer(buf, 10);
+            Producer prod = new Producer(buf, 1000);
+            Consumer con = new Consumer(buf, 1000);
 
             Parallel.Invoke(prod.Run, con.Run);
 
+
+            //Console.ReadKey();
+            Console.WriteLine("The buffer was filled {0} times.", buf.NumberOfFills);
             Console.ReadKey();
         }
     }

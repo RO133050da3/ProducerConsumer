@@ -10,6 +10,7 @@ namespace ProducerConsumer
     {
         private Queue<int> _queue;
         private int _cap;
+        public int NumberOfFills = 0;
 
         public BoundedBuffer(int capacity)
         {
@@ -21,6 +22,8 @@ namespace ProducerConsumer
         {
             if (this._queue.Count >= this._cap)
             {
+                //Console.WriteLine("Buffer full!");
+                this.NumberOfFills ++;
                 return true;
             }
 
