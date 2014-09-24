@@ -9,21 +9,19 @@ namespace ProducerConsumer
     {
         private int _max;
         private BoundedBuffer _buffer;
-        public Consumer(BoundedBuffer buf, int howMany)
+        public Consumer(BoundedBuffer buf)
         {
-            this._max = howMany;
             this._buffer = buf;
         }
 
         public void Run()
         {
-            for (int i = 0; i < this._max; i++)
+            int temp;
+
+            do
             {
-               
-                int temp = this._buffer.Take();
-                
-                
-            }
+                temp = this._buffer.Take();
+            } while (temp != -1);
         }
     }
 }
