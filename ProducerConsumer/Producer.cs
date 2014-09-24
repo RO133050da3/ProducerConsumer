@@ -21,11 +21,10 @@ namespace ProducerConsumer
         {
             for (int i = 0; i < this._max; i++)
             {
-                
                 this._buffer.Put(i);
-                
-                
             }
+
+            this._buffer.Put(-1);
         }
     }
 }
