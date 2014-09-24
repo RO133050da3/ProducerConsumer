@@ -56,11 +56,13 @@ namespace ProducerConsumer
                 {
                     return -1;
                 }
+                // todo: blah
+
 
                 while (this._q.Count == 0)
                 {
                     // Wait until the queue is not empty
-                    Monitor.Wait(this._q); // thread A is waiting
+                    Monitor.Wait(this._q);
                     if (this._lastItemServed)
                     {
                         return -1;
