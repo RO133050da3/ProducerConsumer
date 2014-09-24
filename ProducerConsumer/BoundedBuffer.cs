@@ -31,13 +31,17 @@ namespace ProducerConsumer
         {
             lock (this._q)
             {
-                if (!this.IsFull())
+                while (this.IsFull())
                 {
-                    // Insert the element into the queue
-                    this._q.Enqueue(element);
-                    Console.WriteLine("Just added {0} into the buffer.", element);
-                    Monitor.PulseAll(this._q);
+                    Monitor.Wait(this._q);
                 }
+
+                
+                // Insert the element into the queue
+                this._q.Enqueue(element);
+                Console.WriteLine("Just added {0} into the buffer.", element);
+                Monitor.PulseAll(this._q);
+                
             }
 
         }
@@ -54,6 +58,7 @@ namespace ProducerConsumer
             
                 int temp = this._q.Dequeue();
                 Console.WriteLine("Just took {0} from the buffer.", temp);
+                Monitor.PulseAll(this._q);
                 return temp;
             }   
         }
