@@ -8,5 +8,9 @@ namespace ProducerConsumer
 {
     public class BoundedBuffer
     {
+        public BoundedBuffer(int capacity)
+        {
+            
+        }
     }
 }
