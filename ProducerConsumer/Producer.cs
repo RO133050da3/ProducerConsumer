@@ -8,5 +8,9 @@ namespace ProducerConsumer
 {
     public class Producer
     {
+        public Producer(BoundedBuffer buf, int i)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
