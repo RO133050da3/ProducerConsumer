@@ -10,7 +10,6 @@ namespace ProducerConsumer
     {
         public Producer(BoundedBuffer buf, int i)
         {
-            throw new NotImplementedException();
         }
     }
 }
